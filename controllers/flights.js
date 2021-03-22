@@ -5,12 +5,19 @@ module.exports = {
     index,
     create,
     delete: deleteFlight,
+    show,
 };
 
 function index(req, res) {
     Flight.find({}).sort({departs: 'ascending'}).exec(function(err, flights) {
         res.render('flights/index', { flights });
     });
+}
+
+function show(req, res) {
+    Flight.findById(req.params.id, function(err, flight) {
+        res.render('flights/show', { title: 'Flight Detail', flight });
+    })
 }
 
 function create(req, res) {

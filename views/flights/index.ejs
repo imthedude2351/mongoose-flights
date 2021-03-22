@@ -8,7 +8,8 @@
   <title>Mongoose Flights</title>
 </head>
 <body>
-    <a href="/">Home</a>
+  <a href="/flights/new">New Flight</a>
+  <a href="/">Home</a>
   <h1>Flight List</h1>
   <table>
     <thead>
@@ -26,8 +27,8 @@
           <td><%= f.flightNo %></td>
           <td><%= f.airport %></td>
           <td><%= f.departs %></td>
+          <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
         </tr>
-      <!-- Close the forEach using EJS here -->
     <% }); %>
     </tbody>
   </table>
