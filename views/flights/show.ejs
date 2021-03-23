@@ -9,7 +9,26 @@
   <div><%= flight.departs %></div>
   <div>Airport: </div>
   <div><%= flight.airport %></div>
+
+
+  <div>Seat:</div>
+    <ul>
+      <%- flight.ticket.map(f => 
+        `<li>${f.seat} <small>${f.price}</small></li>`
+      ).join('') %>
+    </ul>
+  <!-- end cast list -->
 </section>
+<!-- add to cast form below this comment -->
+<form id="add-seat-to-flight" action="/flights/<%= flight._id %>/tickets" method="POST">
+  <select name="ticketId">
+    //<%- ticket.map(p => 
+      `<option value="${t._id}">${t.seat}</option>`
+    ).join('') %>
+ </select>
+ <input name="seat" required pattern="[A-F][1-9]\d?">
+ <button type="submit">Add to Flight</button>
+</form>
 
 <br><br><h2>Destination</h2>
 <form id="add-destination-form" method="POST"
