@@ -9,7 +9,7 @@ const destinationSchema = new Schema({
     }, 
     arrival: Date
 }, {
-    timstamps: true
+    timestamps: true
 });
 
 const flightSchema = new Schema({
